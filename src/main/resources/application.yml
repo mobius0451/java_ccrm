@@ -1,0 +1,58 @@
+#端口号
+server:
+  port: 8806
+
+spring:
+  #配置mysql
+  datasource:
+    url:  jdbc:mysql://localhost:3306/db_ccrm?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 6666
+  application:
+    name: CampusEpidemicControl
+  #解决knife4j运行问题
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+#mybutis-Plus配置
+mybatis-plus:
+  configuration:
+    #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
+    map-underscore-to-camel-case: true
+    #日志打印
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: ASSIGN_ID
+  #扫描xml文件
+  mapper-locations: classpath:src/main/resources/mapper/*.xml
+
+#redis配置
+redis:
+  #  配置主机
+  host: 127.0.0.1
+  # 数据库序号
+  database: 0
+  #  指定端口
+  port: 6379
+
+# token配置
+token:
+  # 令牌自定义标识
+  header: Authorization
+  # 令牌密钥
+  secret: aabbccddeeffgg
+  # 令牌有效期（默认30分钟）
+  expireTime: 30
+
+#文件路径
+ccrm:
+  #本地资源地址
+  filePath: E:\ccrmFile\
+  #静态映射
+  fileMapping: /profile/
+
+
+
